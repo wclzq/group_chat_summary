@@ -69,6 +69,8 @@ class GroupChatSummary(Plugin):
     open_ai_model = "gpt-4-0613"
     max_record_quantity = 1000
     black_chat_name=[]
+    curdir = os.path.dirname(__file__)
+    db_path = os.path.join(curdir, "chat_records.db")
     def __init__(self):
         
         super().__init__()
@@ -94,10 +96,9 @@ class GroupChatSummary(Plugin):
 
     def init_database(self):
         """初始化数据库"""
-        curdir = os.path.dirname(__file__)
-        db_path = os.path.join(curdir, "chat_records.db")
+       
         try:
-            with sqlite3.connect(db_path) as conn:
+            with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
                 # 创建聊天记录表，将 create_time 改为 TEXT 类型
                 cursor.execute('''
@@ -139,7 +140,7 @@ class GroupChatSummary(Plugin):
             if e_context["context"]["isgroup"]:
                 try:
                     # 从数据库获取聊天记录
-                    with sqlite3.connect('chat_records.db') as conn:
+                    with sqlite3.connect(self.db_path) as conn:
                         cursor = conn.cursor()
                         cursor.execute('''
                             SELECT user_nickname, content, create_time 
