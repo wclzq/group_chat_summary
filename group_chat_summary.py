@@ -181,7 +181,7 @@ class GroupChatSummary(Plugin):
     def add_conetent(self, message):
         """添加聊天记录到数据库"""
         try:
-            with sqlite3.connect('chat_records.db') as conn:
+            with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
                 # 将时间戳转换为字符串格式
                 time_str = datetime.fromtimestamp(message.create_time).strftime('%Y-%m-%d %H:%M:%S')
