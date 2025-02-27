@@ -10,13 +10,6 @@
 - 支持黑名单功能
 - 自动清理过期消息
 
-## 下载安装
-```
-#installp https://github.com/wclzq/group_chat_summary.git
-```
-然后#scanp扫描
-或者下载文件放到plugins目录下，并配置config.json
-
 ## 使用方法
 
 在群聊中，发送以下命令来获取群聊总结：
@@ -48,7 +41,7 @@
 | open_ai_api_key | string | OpenAI API密钥 | 必填 |
 | open_ai_model | string | 使用的OpenAI模型 | "gpt-4o-mini" |
 | max_record_quantity | number | 每个群保存的最大消息数量 | 1000 |
-| black_chat_name | array | 黑名单用户列表 | [] |
+| black_chat_name | array | 黑名单群聊列表 | [] |
 
 配置示例：
 
