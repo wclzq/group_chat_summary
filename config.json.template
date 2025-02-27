@@ -1,0 +1,8 @@
+{
+  
+  "open_ai_api_base": "http:///v1",
+  "open_ai_api_key":  "sk-",
+  "open_ai_model": "gpt-4o-mini",
+  "max_record_quantity": 1000,
+  "black_chat_name":["群聊1","群聊2"]
+  }
