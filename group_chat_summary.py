@@ -184,7 +184,7 @@ class GroupChatSummary(Plugin):
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
                 # 将时间戳转换为字符串格式
-                time_str = datetime.fromtimestamp(message.create_time).strftime('%Y-%m-%d %H:%M:%S')
+                time_str = datetime.fromtimestamp(int(message.create_time)).strftime('%Y-%m-%d %H:%M:%S')
                 # 插入数据
                 cursor.execute('''
                     INSERT OR IGNORE INTO chat_records (group_id, user_nickname, content, create_time)
